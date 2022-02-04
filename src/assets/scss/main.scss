@@ -1,0 +1,18 @@
+// abstracts
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+// ~ base
+@import "base/glopal";
+@import "base/animations";
+@import "base/typography";
+
+// components
+
+// layout
+
+// pages
+@import "pages/homePage";
+
+// rtl
+@import "mainRtl.scss";

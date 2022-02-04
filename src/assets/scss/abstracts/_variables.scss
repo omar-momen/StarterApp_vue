@@ -1,0 +1,7 @@
+:root {
+  --main_Bg_Color: #eee;
+
+  &.darkTheme {
+    --main_Bg_Color: #333;
+  }
+}

@@ -1,0 +1,18 @@
+// ========== Start fadeIn
+.fadeIn-enter-active,
+.fadeIn-leave-active {
+  transition-duration: 0.6s;
+  transition-property: opacity;
+  overflow: hidden;
+}
+
+.fadeIn-enter,
+.fadeIn-leave-to {
+  opacity: 0;
+}
+
+.fadeIn-enter-to,
+.fadeIn-leave {
+  opacity: 1;
+}
+// ========== End fadeIn
