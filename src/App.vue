@@ -11,7 +11,7 @@ export default {
   name: "App",
 
   mounted() {
-    // ===> Vuetify Direction
+    // ====> Vuetify Direction
     if (this.$store.getters["lang_module/lang"] == "ar") {
       this.$vuetify.rtl = true;
     } else {
