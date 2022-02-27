@@ -1,5 +1,9 @@
 body {
   &.rtl {
     direction: rtl;
+
+    .v-application.my_app {
+      font-family: "Neo Sans Arabic";
+    }
   }
 }

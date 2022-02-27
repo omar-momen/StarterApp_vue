@@ -1,45 +1,37 @@
 export default {
-  // ============================= Login
+  // ============================= Set_User_Dataa
+  set_userId(state, payload) {
+    localStorage.setItem("Project_App_User_Id", payload);
+    state.user.id = payload;
+  },
   set_token(state, payload) {
     localStorage.setItem("Project_App_Token", payload);
-    state.token = payload;
+    state.user.token = payload;
   },
   set_usertype(state, payload) {
     localStorage.setItem("Project_App_User_Type", payload);
-    state.usertype = payload;
-  },
-  set_userId(state, payload) {
-    localStorage.setItem("Project_App_User_Id", payload);
-    state.user_id = payload;
+    state.user.usertype = payload;
   },
   set_userImage(state, payload) {
     localStorage.setItem("Project_App_userImg", payload);
-    state.userImage = payload;
+    state.user.image = payload;
   },
   set_userPhone(state, payload) {
     localStorage.setItem("Project_App_userPhone", payload);
-    state.userPhone = payload;
+    state.user.phone = payload;
   },
 
-  // ============================= Logout
-  remove_token(state) {
-    state.token = "";
-    localStorage.removeItem("Project_App_Token");
-  },
-  remove_userType(state) {
-    state.usertype = "";
-    localStorage.removeItem("Project_App_User_Type");
-  },
-  remove_userId(state) {
-    state.user_id = "";
+  // ============================= Remove_User_Dataa
+  remove_user_data(state) {
     localStorage.removeItem("Project_App_User_Id");
-  },
-  remove_userImage(state) {
-    state.userImage = "";
+    localStorage.removeItem("Project_App_Token");
+    localStorage.removeItem("Project_App_User_Type");
     localStorage.removeItem("Project_App_userImg");
-  },
-  remove_userPhone(state) {
-    state.userPhone = "";
     localStorage.removeItem("Project_App_userPhone");
+    state.user.id = "";
+    state.user.token = "";
+    state.user.image = "";
+    state.user.usertype = "";
+    state.user.phone = "";
   },
 };

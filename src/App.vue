@@ -7,19 +7,28 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "App",
 
+  computed: {
+    ...mapGetters({
+      lang: "lang_module/lang",
+      theme: "theme_module/current_theme",
+    }),
+  },
+
   mounted() {
     // ====> Vuetify Direction
-    if (this.$store.getters["lang_module/lang"] == "ar") {
+    if (this.lang == "ar") {
       this.$vuetify.rtl = true;
     } else {
       this.$vuetify.rtl = false;
     }
 
     // ===> Vuetify Theme
-    if (this.$store.getters["theme_module/current_theme"] == "light") {
+    if (this.theme == "light") {
       this.$vuetify.theme.dark = false;
     } else {
       this.$vuetify.theme.dark = true;

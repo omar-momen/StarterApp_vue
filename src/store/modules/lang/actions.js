@@ -7,21 +7,16 @@ export default {
 
     if (!lang) {
       lang = default_lang;
-      localStorage.setItem("Project_App_Lang", default_lang);
-      context.commit("switchLang", lang);
-      i18n.locale = default_lang;
-    } else {
-      localStorage.setItem("Project_App_Lang", lang);
-      context.commit("switchLang", lang);
-      i18n.locale = lang;
     }
 
+    localStorage.setItem("Project_App_Lang", lang);
+    document.documentElement["lang"] = lang;
+    i18n.locale = lang;
+
     if (lang == "ar") {
-      document.documentElement["lang"] = "ar";
       document.querySelector("body").classList.add("rtl");
       document.querySelector("body").classList.remove("ltr");
     } else if (lang == "en") {
-      document.documentElement["lang"] = "en";
       document.querySelector("body").classList.add("ltr");
       document.querySelector("body").classList.remove("rtl");
     }
@@ -39,7 +34,6 @@ export default {
     }
 
     i18n.locale = lang;
-    conetxt.commit("switchLang", lang);
     location.reload();
   },
 };

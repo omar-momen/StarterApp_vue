@@ -5,9 +5,10 @@ export default {
 
     if (!theme) {
       theme = default_theme;
-      localStorage.setItem("Project_App_Theme", default_theme);
-      context.commit("changeTheme", theme);
     }
+
+    localStorage.setItem("Project_App_Theme", theme);
+    context.commit("changeTheme", theme);
 
     if (theme == "light") {
       document.querySelector("html").classList.remove("darkTheme");
@@ -22,14 +23,8 @@ export default {
     let theme;
 
     if (context.getters.current_theme == "light") {
-      localStorage.setItem("Project_App_Theme", "dark");
-      document.querySelector("html").classList.remove("lightTheme");
-      document.querySelector("html").classList.add("darkTheme");
       theme = "dark";
     } else if (context.getters.current_theme == "dark") {
-      localStorage.setItem("Project_App_Theme", "light");
-      document.querySelector("html").classList.remove("darkTheme");
-      document.querySelector("html").classList.add("lightTheme");
       theme = "light";
     }
 

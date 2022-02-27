@@ -4,12 +4,13 @@ import VueRouter from "vue-router";
 // ============================== Start Views ==============================
 import Home from "../views/Home.vue"; // Home
 
-// *************** Children
+// ============ Start Children ============
 import HomePage from "../views/children/HomePage.vue";
+// ============ End Children ============
 
-// *************** Start Auth ***************
+// ============ Start Auth ============
 import Login from "../views/Auth/Login.vue";
-// *************** End Auth ***************
+// ============ End Auth ============
 
 // *************** NotFound
 import NotFound from "../views/NotFound.vue";
@@ -22,11 +23,8 @@ import store from "../store/index";
 const router = new VueRouter({
   mode: "hash",
   base: process.env.BASE_URL,
-  scrollBehavior() {
-    document.getElementById("app").scrollIntoView({ behavior: "smooth" });
-  },
   routes: [
-    //Main
+    // ===================== Start Home =====================
     {
       path: "/",
       component: Home,
@@ -38,28 +36,27 @@ const router = new VueRouter({
         },
       ],
     },
+    // ===================== End Home =====================
 
-    // Auth
+    // ======= Start Auth =======
     {
       path: "/login",
       name: "Login",
       component: Login,
     },
+    // ======= End Auth =======
 
-    // NotFound
+    // ======= Start NotFound =======
     { path: "/:notFound(.*)", name: "NotFound", component: NotFound },
+    // ======= End NotFound =======
   ],
 });
 
-// router.beforeEach((to, _2, next) => {
-//   if (to.name !== "Login" && !store.getters["auth/token"]) {
-//     next({ name: "Login" });
-//   } else if (to.name == "Login" && store.getters["auth/token"]) {
-//     next("/");
-//   } else {
-//     next();
-//   }
-// });
+// ======= Start Router Guards =======
+router.beforeEach((to, from, next) => {
+  next(true);
+});
+// ======= End Router Guards =======
 
 Vue.use(VueRouter);
 export default router;

@@ -6,11 +6,13 @@ export default {
   namespaced: true,
   state() {
     return {
-      token: localStorage.getItem("Project_App_Token"),
-      usertype: localStorage.getItem("Project_App_User_Type"),
-      user_id: localStorage.getItem("Project_App_User_Id"),
-      userImage: localStorage.getItem("Project_App_userImg"),
-      userPhone: localStorage.getItem("Project_App_userPhone"),
+      user: {
+        id: localStorage.getItem("Project_App_User_Id"),
+        token: localStorage.getItem("Project_App_Token"),
+        usertype: localStorage.getItem("Project_App_User_Type"),
+        image: localStorage.getItem("Project_App_userImg"),
+        phone: localStorage.getItem("Project_App_userPhone"),
+      },
     };
   },
   mutations,

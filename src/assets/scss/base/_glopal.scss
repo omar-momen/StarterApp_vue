@@ -1,45 +1,37 @@
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  font-size: inherit;
-}
-
 html {
   overflow-x: hidden;
 }
 
 body {
-  overflow-x: hidden;
-  box-sizing: border-box;
-  position: relative;
-  min-height: 10000px;
-
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  a,
-  a:link,
-  a:visited,
-  a:hover,
-  a:active,
-  a:focus {
-    text-decoration: unset;
-    color: unset;
-  }
-
   .v-application.my_app {
+    overflow-x: hidden;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0 10px;
+    background: var(--main_bg_color);
+    color: var(--main_color);
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active,
+    a:focus {
+      text-decoration: unset;
+      color: unset;
+    }
   }
 }
 
 /**** Scroll Style ****/
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 5px;
   display: none;
 }
 ::-webkit-scrollbar-track {

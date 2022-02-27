@@ -1,7 +1,9 @@
 :root {
-  --main_Bg_Color: #eee;
+  --main_bg_color: #fff;
+  --main_color: #333;
 
   &.darkTheme {
-    --main_Bg_Color: #333;
+    --main_bg_color: #121212;
+    --main_color: #eee;
   }
 }

@@ -6,7 +6,7 @@ export default {
   namespaced: true,
   state() {
     return {
-      default_theme: "light",
+      default_theme: "dark",
       current_theme: localStorage.getItem("Project_App_Theme"),
     };
   },
