@@ -16,20 +16,21 @@ store.dispatch("theme_module/handleTheme"); // ==> Store (Vuex) <==
 
 // ========  Start Axios
 import axios from "axios";
-
 Vue.prototype.$axios = axios; // Glopal variable
 
+// **** CONSTS
+const USER_TOKEN = store.getters["auth_module/currentUser"].token;
+const CURRENT_LANG = store.getters["lang_module/lang"];
+
 // Global headers
-axios.defaults.baseURL = "https://lb.aait-d.com/elava/public/api/"; // baseurl
+axios.defaults.baseURL = "https://elava.elsaed.aait-d.com/api/"; // baseurl
 axios.defaults.headers.common["cache-control"] = "no-cache";
 axios.defaults.headers.common["Accept"] = "application/json";
-axios.defaults.headers.common["Accept-language"] =
-  store.getters["lang_module/lang"]; // ==> Store (Vuex) <==
+axios.defaults.headers.common["Accept-language"] = CURRENT_LANG;
 
 // Set Token If Exists
-if (store.getters["auth_module/token"]) {
-  axios.defaults.headers.common["Authorization"] =
-    "bearer" + localStorage.getItem("Elava_App_Token");
+if (USER_TOKEN) {
+  axios.defaults.headers.common["Authorization"] = "Bearer " + USER_TOKEN;
 }
 // ========  End Axios
 
@@ -47,7 +48,7 @@ Vue.use(iziToast);
 
 // ======== Moment
 const moment = require("moment");
-if (store.getters["lang_module/lang"] == "ar") {
+if (CURRENT_LANG == "ar") {
   require("moment/locale/ar");
 }
 Vue.use(require("vue-moment"), {

@@ -16,6 +16,10 @@
       Change theme
     </button>
 
+    <span class="d-block my-5">{{
+      new Date() | moment("dddd, MMMM Do YYYY")
+    }}</span>
+
     <template>
       <v-data-table
         :headers="headers"
